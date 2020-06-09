@@ -1,0 +1,7 @@
+---
+# vars file for buf
+buf_platform: '{{ buf_os }}-{{ buf_arch }}'
+buf_archive: buf-{{ buf_ver }}-{{ buf_platform }}.{{ buf_archive_type }}
+buf_url: '{{ buf_miror }}/{{ buf_ver }}/buf-{{ buf_platform }}.{{ buf_archive_type }}'
+buf_checksum: '{{ buf_checksums[buf_ver][buf_platform] }}'
+buf_install_dir: '{{ buf_parent_install_dir }}/buf-{{ buf_ver }}'

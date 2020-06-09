@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+  - role: '{{ playbook_dir }}'
+  tasks:
+  - command: /usr/local/bin/buf --version
+    register: buf_test_output
+  - debug:
+      msg: '{{ buf_test_output.stderr }}'

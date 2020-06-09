@@ -1,0 +1,14 @@
+---
+# defaults file for buf
+buf_ver: v0.16.0
+buf_os: Linux
+buf_arch: x86_64
+buf_miror: https://github.com/bufbuild/buf/releases/download
+buf_archive_type: tar.gz
+buf_parent_install_dir: /usr/local
+buf_checksums:
+  v0.16.0:
+    # https://github.com/bufbuild/buf/releases/download/v0.16.0/buf-Darwin-x86_64.tar.gz
+    Darwin-x86_64: sha256:0f2f329fbb02fca5bc37bd37d6df507355eca04f3d79bdc7b85081716c64a8a4
+    # https://github.com/bufbuild/buf/releases/download/v0.16.0/buf-Linux-x86_64.tar.gz
+    Linux-x86_64: sha256:e74f9e4b14ac14f1ed8661f47e682869aba38c3b666692910882af2edc02baa3
