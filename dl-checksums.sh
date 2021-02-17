@@ -26,4 +26,4 @@ dl_ver() {
     dl $ver Linux x86_64
 }
 
-dl_ver ${1:-v0.16.0}
+dl_ver ${1:-v0.37.0}
