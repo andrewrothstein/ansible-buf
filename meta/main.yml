@@ -32,5 +32,4 @@ galaxy_info:
     - development
   role_name: buf
 
-dependencies:
-  - andrewrothstein.unarchive-deps
+dependencies: []

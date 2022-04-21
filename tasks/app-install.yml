@@ -1,0 +1,19 @@
+---
+- name: resolving vars for {{ buf_app }}
+  include_vars:
+    file: app-vars.yml
+- name: downloading {{ buf_app_url }} to {{ buf_app_install_exe }}
+  become: true
+  become_user: root
+  get_url:
+    url: '{{ buf_app_url }}'
+    dest: '{{ buf_app_install_exe }}'
+    checksum: '{{ buf_app_checksum }}'
+    mode: 0755
+- name: linking {{ buf_app_install_link }} to {{ buf_app_install_exe }}
+  become: true
+  become_user: root
+  file:
+    src: '{{ buf_app_install_exe }}'
+    dest: '{{ buf_app_install_link }}'
+    state: link

@@ -9,52 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for buf {{ buf_ver }} install...
-  become: yes
-  stat:
-    path: '{{ buf_install_dir }}'
-  changed_when: False
-  register: buf_binary
-- when: not buf_binary.stat.exists
-  block:
-    - name: download buf {{ buf_ver }} from {{ buf_url }}
-      become: yes
-      become_user: root
-      get_url:
-        url: '{{ buf_url }}'
-        dest: '{{ buf_tmp_archive }}'
-        mode: 0644
-        checksum: '{{ buf_checksum }}'
-    - name: mkdir {{ buf_install_dir }}
-      become: yes
-      become_user: root
-      file:
-        path: '{{ buf_install_dir }}'
-        state: directory
-        mode: 0755
-    - name: unarchive buf {{ buf_ver }}
-      become: yes
-      become_user: root
-      unarchive:
-        remote_src: yes
-        src: '{{ buf_tmp_archive }}'
-        dest: '{{ buf_install_dir }}'
-        creates: '{{ buf_install_dir }}/buf'
-  always:
-    - name: rm {{ buf_tmp_archive }}
-      become: yes
-      become_user: root
-      file:
-        path: '{{ buf_tmp_archive }}'
-        state: absent
-- name: linking executables in {{ buf_install_bin_dir }} from {{ buf_install_link_dir }}
-  become: yes
-  become_user: root
-  with_items:
-    - buf
-    - protoc-gen-buf-check-breaking
-    - protoc-gen-buf-check-lint
-  file:
-    src: '{{ buf_install_bin_dir }}/{{ item }}'
-    dest: '{{ buf_install_link_dir }}/{{ item }}'
-    state: link
+- loop: '{{ buf_apps | default([]) }}'
+  loop_control:
+    loop_var: buf_app
+  include_tasks: app-install.yml

@@ -1,29 +1,49 @@
 #!/usr/bin/env sh
+set -e
 DIR=~/Downloads
 MIRROR=https://github.com/bufbuild/buf/releases/download
 
-dl()
+dl_app()
 {
-    local ver=$1
+    local lchecksums=$1
+    local platform=$2
+    local app=$3
+    local dotexe=${4:-""}
+    local exe="${app}-${platform}${dotexe}"
+    printf "      %s: sha256:%s\n" $app $(egrep -e "${exe}\$" $lchecksums | awk '{print $1}')
+}
+
+dl_plat() {
+    local lchecksums=$1
     local os=$2
     local arch=$3
-    local archive_type=${4:-tar.gz}
+    local dotexe=${4:-""}
     local platform="${os}-${arch}"
-    local url="${MIRROR}/${ver}/buf-${platform}.${archive_type}"
-    local lfile="${DIR}/buf-${ver}-${platform}.${archive_type}"
-    if [ ! -e $lfile ];
-    then
-        wget -q -O $lfile $url
-    fi
-    printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
+    printf "    %s:\n" $platform
+    dl_app $lchecksums $platform buf $dotexe
+    dl_app $lchecksums $platform protoc-gen-buf-breaking $dotexe
+    dl_app $lchecksums $platform protoc-gen-buf-lint $dotexe
 }
 
 dl_ver() {
     local ver=$1
-    printf "  %s:\n" $ver
-    dl $ver Darwin x86_64
-    dl $ver Linux x86_64
+
+    # https://github.com/bufbuild/buf/releases/download/v1.4.0/sha256.txt
+    local url="${MIRROR}/v${ver}/sha256.txt"
+    local lchecksums="${DIR}/buf-${ver}-sha256.txt"
+    if [ ! -e $lchecksums ];
+    then
+        curl -sSLf -o $lchecksums $url
+    fi
+
+    printf "  # %s\n" $url
+    printf "  '%s':\n" $ver
+    dl_plat $lchecksums Darwin arm64
+    dl_plat $lchecksums Darwin x86_64
+    dl_plat $lchecksums Linux aarch64
+    dl_plat $lchecksums Linux x86_64
+    dl_plat $lchecksums Windows arm64 .exe
+    dl_plat $lchecksums Windows x86_64 .exe
 }
 
-dl_ver ${1:-v1.3.1}
+dl_ver ${1:-1.4.0}
