@@ -1,6 +1,6 @@
 ---
 # defaults file for buf
-buf_ver: v0.37.0
+buf_ver: v1.3.1
 buf_os: Linux
 buf_arch: x86_64
 buf_miror: https://github.com/bufbuild/buf/releases/download
@@ -17,3 +17,9 @@ buf_checksums:
     Darwin-x86_64: sha256:5fb9d5981ae0615feb7cc8f820067f4ede4334fbe78bf236d517aecae0f4fedc
     # https://github.com/bufbuild/buf/releases/download/v0.37.0/buf-Linux-x86_64.tar.gz
     Linux-x86_64: sha256:a7fd79fce24639f2b3b28a80149a142c748d677008569b068628a619925a31f0
+  v1.3.1:
+    # https://github.com/bufbuild/buf/releases/download/v1.3.1/buf-Darwin-x86_64.tar.gz
+    Darwin-x86_64: sha256:d5292e83fcb64ea512227293eb42318551cd80d475cdad47fe6c11c759c930f8
+    # https://github.com/bufbuild/buf/releases/download/v1.3.1/buf-Linux-x86_64.tar.gz
+    Linux-x86_64: sha256:308283e8fe11e2be738fbe1b47d59220eef519c8f6fdf390a4f8d86b6288795e
+
