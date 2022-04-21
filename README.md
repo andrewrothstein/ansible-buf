@@ -1,6 +1,6 @@
 andrewrothstein.buf
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-buf.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-buf)
+![Build Status](https://github.com/andrewrothstein/ansible-buf/actions/workflows/build.yml/badge.svg)
 
 Installs [buf](https://buf.build/)
 
