@@ -1,6 +1,5 @@
 ---
-buf_app_exe: '{{ buf_app }}-{{ buf_platform }}{{ buf_dotexe | default("") }}'
-buf_app_url: '{{ buf_mirror }}/v{{ buf_ver }}/{{ buf_app_exe }}'
+buf_app_url: '{{ buf_mirror }}/v{{ buf_ver }}/{{ buf_app }}-{{ buf_platform }}{{ buf_dotexe | default("") }}'
 buf_app_checksum: '{{ buf_checksums[buf_ver][buf_platform][buf_app] }}'
-buf_app_install_exe: '{{ buf_install_dir }}/{{ buf_app_exe }}'
+buf_app_install_exe: '{{ buf_install_dir }}/{{ buf_app }}-{{ buf_ver }}-{{ buf_platform }}{{ buf_dotexe | default("") }}'
 buf_app_install_link: '{{ buf_install_dir }}/{{ buf_app }}'
