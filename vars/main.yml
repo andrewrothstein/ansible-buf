@@ -1,3 +1,5 @@
 ---
 # vars file for buf
+buf_os: '{{ ansible_system }}'
+buf_arch: '{{ ansible_architecture }}'
 buf_platform: '{{ buf_os }}-{{ buf_arch }}'
