@@ -1,10 +1,14 @@
 ---
-- hosts: all
-  roles:
-  - role: '{{ playbook_dir }}'
+- name: Testing andrewrothstein.buf
+  hosts: all
   tasks:
-  - command: /usr/local/bin/buf --version
-    register: buf_test_output
-  - name: buf --version
-    debug:
-      msg: '{{ buf_test_output.stdout }}'
+    - name: Installing andrewrothstein.buf
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
+    - name: Executing 'buf --version'
+      ansible.builtin.command: /usr/local/bin/buf --version
+      changed_when: false
+      register: buf_test_output
+    - name: Output of 'buf --version'
+      ansible.builtin.debug:
+        msg: '{{ buf_test_output.stdout }}'
