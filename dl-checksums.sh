@@ -46,4 +46,4 @@ dl_ver() {
     dl_plat $lchecksums Windows x86_64 .exe
 }
 
-dl_ver ${1:-1.30.1}
+dl_ver ${1:-1.31.0}
