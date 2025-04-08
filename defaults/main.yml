@@ -1,6 +1,6 @@
 ---
 # defaults file for buf
-buf_ver: 1.51.0
+buf_ver: 1.52.0
 buf_mirror: https://github.com/bufbuild/buf/releases/download
 buf_install_dir: /usr/local/bin
 buf_apps:
@@ -1386,3 +1386,29 @@ buf_checksums:
       buf: sha256:bbe19813d02774cf55ec4418567d50e6c8a6da0ab9cd970b13bc24cc655075d0
       protoc-gen-buf-breaking: sha256:e3443b176e4b357662147a9c1318fd52dae18e7dfb7c8ab9372857c0be794f00
       protoc-gen-buf-lint: sha256:83eee3f4518599aed325124e1df57196ca545ef04520da39296518b741962b5d
+  # https://github.com/bufbuild/buf/releases/download/v1.52.0/sha256.txt
+  '1.52.0':
+    Darwin-arm64:
+      buf: sha256:2d57f259ea6b336c518d33c8dc6bec7bad7fb6dcd3d05e9462ea1faeeed49aa9
+      protoc-gen-buf-breaking: sha256:74df4735d9e155f45a98be8248fc78eac6f2be7b33c58db5d0533892253b01e4
+      protoc-gen-buf-lint: sha256:91388b2a79aa233f130f32db3c1220e8f385f0d4abe4f0a43d7c0052a5e5743c
+    Darwin-x86_64:
+      buf: sha256:c45728b4cd8c8054aa6fba6dd8daceda130a97c22045006792158a7b4c9ae82f
+      protoc-gen-buf-breaking: sha256:1a98cacb00bd033106e24461cd2aa4286a7a7c7aeeea71b5d9d2adc0cb72c759
+      protoc-gen-buf-lint: sha256:ceb124a4a458274ed7621c79323c6f296a1e58ba3dd57400385980ae822036ee
+    Linux-aarch64:
+      buf: sha256:f2881e63f1309ef7bf185ce307f03860144cf4229a3b7a41024e85bd58035c12
+      protoc-gen-buf-breaking: sha256:c4d86accc3ae13bba305885b4cdc46ba94a2134e8bb8cbaee7b77a2ee7fe7f54
+      protoc-gen-buf-lint: sha256:6820d51010dceffef5896ed7e032cf8d65fee4fc7aa93c2f63f94d2e87e46752
+    Linux-x86_64:
+      buf: sha256:b5a715599e9ad7c8f2c8b505d52fc88796e77a799ff2b96fc93fea4dcafef451
+      protoc-gen-buf-breaking: sha256:d5af31a7eea6661f7167721903ebce54583687a6799071ccef0fb3e99af7ac78
+      protoc-gen-buf-lint: sha256:f15514383da53724f0c5c5c593bc5cf96bacaff9637ec083609d444db59a7778
+    Windows-arm64:
+      buf: sha256:99375e04bf08a81b12f2802aec318f4fd40c349340d51879a2b7d7d761467eb0
+      protoc-gen-buf-breaking: sha256:7c10db6e67ce2aece7a5c62a0e2a4087edaeecd4436fff99dd385ef31c40df43
+      protoc-gen-buf-lint: sha256:cc926c4dbc9d0b66cb220230d923828e60ea03de968a9194b84c9599270ba7be
+    Windows-x86_64:
+      buf: sha256:d39f6b50c0dd99304ca95b8b5f878d28b33ba68080653ea4c3783240a749daaa
+      protoc-gen-buf-breaking: sha256:f0ca50389db82e3c441e05c6f6075d413eea37def46b8dfaa3edf74dae2349c0
+      protoc-gen-buf-lint: sha256:c4ace77b98a47120416c2b5ca6fef2c541eea0ec1e85a7bd526f50151e842e7c
