@@ -46,19 +46,4 @@ dl_ver() {
     dl_plat $lchecksums Windows x86_64 .exe
 }
 
-dl_ver 1.53.0
-dl_ver 1.54.0
-dl_ver 1.55.0
-dl_ver 1.55.1
-dl_ver 1.56.0
-dl_ver 1.57.0
-dl_ver 1.57.1
-dl_ver 1.57.2
-dl_ver 1.58.0
-dl_ver 1.59.0
-dl_ver 1.60.0
-dl_ver 1.61.0
-dl_ver 1.62.0
-dl_ver 1.62.1
-dl_ver 1.63.0
-dl_ver ${1:-1.64.0}
+dl_ver ${1:-1.73.0}
